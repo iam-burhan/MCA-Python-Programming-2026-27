@@ -1,4 +1,3 @@
-
 n = int(input("Enter number of students: "))
 marks = []
 
@@ -10,9 +9,16 @@ avg_marks = sum(marks) / n
 highest = max(marks)
 lowest = min(marks)
 
-passed = sum(1 for m in marks if m >= 40)
-failed = n - passed
-above_75 = sum(1 for m in marks if m > 75)
+passed = 0 
+failed = 0 
+above_75 = 0
+for m in marks: 
+    if m >= 40: 
+        passed += 1
+    else: failed += 1 
+
+    if m > 75: 
+        above_75 += 1
 
 print(f"\nClass Average: {avg_marks:.2f}")
 print(f"Highest Marks: {highest}")
