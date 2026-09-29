@@ -1,24 +1,22 @@
-n = int(input("Enter total number of students: "))
 
+n = int(input("Enter number of students: "))
 marks = []
-print("Enter the marks of students one by one:")
-for i in range(n):
-    m = float(input(f"Enter mark for student {i + 1}: "))
+
+for i in range(1, n + 1):
+    m = float(input(f"Enter marks for student {i}: "))
     marks.append(m)
 
-passed = 0
-above_75 = 0
+avg_marks = sum(marks) / n
+highest = max(marks)
+lowest = min(marks)
 
-for m in marks:
-    if m >= 40:
-        passed = passed + 1
-    if m > 75:
-        above_75 = above_75 + 1
-
+passed = sum(1 for m in marks if m >= 40)
 failed = n - passed
+above_75 = sum(1 for m in marks if m > 75)
 
-print("\n--- Summary ---")
-print("Total Students:", n)
-print("Passed Students (>= 40):", passed)
-print("Failed Students (< 40):", failed)
-print("Students with Distinction (> 75):", above_75)
+print(f"\nClass Average: {avg_marks:.2f}")
+print(f"Highest Marks: {highest}")
+print(f"Lowest Marks: {lowest}")
+print(f"Passed Students: {passed}")
+print(f"Failed Students: {failed}")
+print(f"Students Scoring > 75%: {above_75}")
